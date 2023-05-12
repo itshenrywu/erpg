@@ -119,9 +119,21 @@
 			text-decoration: none;
 		}
 	</style>
+	<script>
+		function reqListener () {
+			tl = JSON.parse(this.responseText);
+			tl.forEach(function(item){
+				document.getElementById('timeline').innerHTML += '<div><time>'+item[0]+'</time><p class="'+item[2]+'">Super Time Travel #'+item[1]+'</p></div>';
+			});
+		}
+		var xhr = new XMLHttpRequest();
+		xhr.addEventListener('load', reqListener);
+		xhr.open('GET', 'data.json?t='+Date.now());
+		xhr.send();
+	</script>
 </head>
 <body>
-	<div class="timeline">
+	<div class="timeline" id="timeline">
 		<h1>2022</h1>
 		<div>
 			<time>7/28</time>
