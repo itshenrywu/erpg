@@ -123,7 +123,7 @@
 		function reqListener () {
 			tl = JSON.parse(this.responseText);
 			tl.forEach(function(item){
-				document.getElementById('timeline').innerHTML += '<div><time>'+item[0]+'</time><p class="'+item[2]+'">Super Time Travel #'+item[1]+'</p></div>';
+				document.getElementById('timeline').innerHTML += '<div><time>'+item[0]+'</time><p class="'+item[2]+'">'+(item[2]==''?'Super ':'')+'Time Travel #'+item[1]+'</p></div>';
 			});
 		}
 		var xhr = new XMLHttpRequest();
